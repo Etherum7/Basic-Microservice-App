@@ -11,6 +11,7 @@ function CommentCreate({ id }) {
       { content: comment }
     );
     setComment("");
+    window.location.reload(true);
   };
   return (
     <div>

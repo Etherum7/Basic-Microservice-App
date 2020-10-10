@@ -9,6 +9,7 @@ function PostCreate() {
       title,
     },{});
     setTitle("");
+    window.location.reload(true);
   };
   return (
     <div>
