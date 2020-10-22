@@ -30,10 +30,13 @@ app.post("/posts", async (req, res, next) => {
   await axios.post("http://localhost:4005/events", event);
 });
 
-app.post('/events', (req, res) => {
+app.post("/events", (req, res) => {
   console.log(req.body.type);
   res.status(200).send({});
-})
-app.listen(4000, () =>
-  console.log("listening on port 4000")
-);
+});
+app.listen(4000, () => {
+  //console.log("Updating Deployment method 1");
+  console.log("Updating Deployment method 2");
+
+  console.log("listening on port 4000");
+});
