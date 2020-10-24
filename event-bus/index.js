@@ -17,13 +17,25 @@ app.post("/events", (req, res, next) => {
   const event = req.body;
   events.push(event);
   //posts
-  axios.post("http://localhost:4000/events", event);
+  axios.post(
+    "http://posts-clusterip-serv:4000/events",
+    event
+  );
   //comments
-  axios.post("http://localhost:4001/events", event);
+  axios.post(
+    "http://comments-clusterip-serv:4001/events",
+    event
+  );
   //query
-  axios.post("http://localhost:4002/events", event);
+  axios.post(
+    "http://query-clusterip-serv:4002/events",
+    event
+  );
   //moderation
-  axios.post("http://localhost:4003/events", event);
+  axios.post(
+    "http://moderation-clusterip-serv:4003/events",
+    event
+  );
 });
 
 app.listen(4005, () =>

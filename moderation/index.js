@@ -17,15 +17,21 @@ app.post("/events", async (req, res) => {
   if (type === "CommentCreated") {
     const { content, status } = data;
     if (content.includes("orange")) {
-      await axios.post("http://localhost:4005/events", {
-        type: "CommentModerated",
-        data: { ...data, status: "rejected" },
-      });
+      await axios.post(
+        "http://event-bus-clusterip-serv:4005/events",
+        {
+          type: "CommentModerated",
+          data: { ...data, status: "rejected" },
+        }
+      );
     } else {
-      await axios.post("http://localhost:4005/events", {
-        type: "CommentModerated",
-        data: { ...data, status: "approved" },
-      });
+      await axios.post(
+        "http://event-bus-clusterip-serv:4005/events",
+        {
+          type: "CommentModerated",
+          data: { ...data, status: "approved" },
+        }
+      );
     }
     res.send({});
   }
