@@ -7,7 +7,7 @@ function CommentCreate({ id }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await axios.post(
-      `http://localhost:4001/posts/${id}/comments`,
+      `http://posts.com/posts/${id}/comments`,
       { content: comment }
     );
     setComment("");
